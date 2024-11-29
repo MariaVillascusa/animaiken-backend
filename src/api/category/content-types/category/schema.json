@@ -16,16 +16,35 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::brand.brand",
+      "mappedBy": "categories"
+    },
+    "families": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::family.family",
+      "mappedBy": "categories"
+    },
+    "sub_families": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sub-family.sub-family",
+      "mappedBy": "categories"
     },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "category"
-    },
-    "description": {
-      "type": "text"
     }
   }
 }
